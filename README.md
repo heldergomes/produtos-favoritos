@@ -4,7 +4,7 @@ Indice
 =================
 <!--ts-->
    * [Features](#Features)
-   * [Como Usar](#Como Usar)
+   * [Como_Usar](#Como_Usar)
    * [Tecnologias](#Tecnologias)
    * [Autor](#Autor)
 <!--te-->
@@ -23,7 +23,7 @@ Indice
   - Nao deve haver dois produtos iguais na lista de produtos favoritos
 - [ ] Consultar Lista Produtos Favoritos
 
-### Como Usar
+### Como_Usar
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 - [Java 11](https://www.oracle.com/br/java/technologies/javase-jdk11-downloads.html).
