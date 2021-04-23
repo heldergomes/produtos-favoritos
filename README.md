@@ -24,7 +24,7 @@ Indice
   - Nao deve haver dois produtos iguais na lista de produtos favoritos
 - [ ] Consultar Lista Produtos Favoritos
 
-### 🛠 Tecnologias
+### Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
