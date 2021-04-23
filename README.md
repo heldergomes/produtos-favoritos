@@ -4,6 +4,7 @@ Indice
 =================
 <!--ts-->
    * [Features](#Features)
+   * [Como Usar](#Como Usar)
    * [Tecnologias](#Tecnologias)
    * [Autor](#Autor)
 <!--te-->
@@ -21,6 +22,24 @@ Indice
   - Adicionar a lista de produtos favoritos apenas produtos cadastrados
   - Nao deve haver dois produtos iguais na lista de produtos favoritos
 - [ ] Consultar Lista Produtos Favoritos
+
+### Como Usar
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+- [Java 11](https://www.oracle.com/br/java/technologies/javase-jdk11-downloads.html).
+- [Docker](https://www.docker.com/products/docker-desktop).
+- [Git](https://git-scm.com/downloads).
+
+```
+# Clone este repositório
+$ git clone https://github.com/heldergomes/produtos-favoritos.git
+
+# Acesse o prompt e entre na rota da api
+$ cd produtos-favoritos/
+
+# Execute o comando:
+$ docker-compose up
+```
 
 ### Tecnologias
 

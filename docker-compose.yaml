@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  aplicacao:
+    build: .
+    depends_on:
+      - "banco_dados"
+
+  banco_dados:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: produtos_favoritos_database
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+      - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
