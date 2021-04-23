@@ -33,3 +33,12 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [React](https://pt-br.reactjs.org/)
 - [React Native](https://reactnative.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
+
+### Autor
+---
+<p>Helder Ardachnikoff Gomes</p>
+
+
+
+[![Linkedin Badge](https://img.shields.io/badge/-Helder-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/helder-ardachnikoff-b91b25122/)](https://www.linkedin.com/in/helder-ardachnikoff-b91b25122/) 
+[![Gmail Badge](https://img.shields.io/badge/-helder.versatti@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:helder.versatti@gmail.com)](mailto:helder.versatti@gmail.com)
