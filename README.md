@@ -12,9 +12,9 @@ Indice
 
 ### Features
 
-- [x] Criar Cliente 
+- [ ] Criar Cliente 
   - Nao posso ter dois clientes com o mesmo e-mail 
-- [x] Consultar Cliente
+- [ ] Consultar Cliente
 - [ ] Atualizar Cliente
 - [ ] Deletar Cliente
 - [ ] Autenticacao Cliente
@@ -28,7 +28,7 @@ Indice
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- [Expo](https://expo.io/)
+- [Java 11](https://www.oracle.com/br/java/technologies/javase-jdk11-downloads.html)
 - [Node.js](https://nodejs.org/en/)
 - [React](https://pt-br.reactjs.org/)
 - [React Native](https://reactnative.dev/)
