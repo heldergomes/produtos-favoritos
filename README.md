@@ -30,7 +30,7 @@ Indice
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Java 11](https://www.oracle.com/br/java/technologies/javase-jdk11-downloads.html)
-- [Node.js](https://nodejs.org/en/)
+- [Postgresql](https://www.postgresql.org)
 - [React](https://pt-br.reactjs.org/)
 - [React Native](https://reactnative.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
