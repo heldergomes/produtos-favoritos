@@ -8,6 +8,7 @@ Indice
    * [Instalação](#instalacao)
    * [Como usar](#como-usar)
       * [Pre Requisitos](#pre-requisitos)
+   * [Autor](#Autor)
 <!--te-->
 
 ### Features
@@ -35,7 +36,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [TypeScript](https://www.typescriptlang.org/)
 
 ### Autor
----
+
 <p>Helder Ardachnikoff Gomes</p>
 
 
