@@ -1,11 +1,18 @@
-# Package Stage
-FROM maven:3.6.0-jdk-11-slim AS build
-COPY src /home/app/src
-COPY pom.xml /home/app
-RUN mvn -f /home/app/pom.xml clean package
-
-# Run Stage
 FROM openjdk:11
-COPY --from=build /home/app/target/produtos-favoritos-0.0.1-SNAPSHOT.jar /usr/local/lib/app.jar
+
+ARG PROFILE
+ARG ADDITIONAL_OPTS
+
+ENV PROFILE=${PROFILE}
+ENV ADDITIONAL_OPTS=${ADDITIONAL_OPTS}
+
+WORKDIR /opt/spring_boot
+
+COPY /target/produtos-favoritos*.jar app.jar
+
+SHELL ["/bin/sh", "-c"]
+
+EXPOSE 5005
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/usr/local/lib/app.jar"]
+
+CMD java ${ADDITIONAL_OPTS} -Dspring.profiles.active=${PROFILE} -jar app.jar

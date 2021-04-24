@@ -1,0 +1,7 @@
+com/api/produtosfavoritos/cliente/ClienteDto.class
+com/api/produtosfavoritos/cliente/AdviceController.class
+com/api/produtosfavoritos/cliente/Controller.class
+com/api/produtosfavoritos/cliente/Cliente.class
+com/api/produtosfavoritos/cliente/ErrorInfo.class
+com/api/produtosfavoritos/cliente/ClienteRepository.class
+com/api/produtosfavoritos/ProdutosFavoritosApplication.class

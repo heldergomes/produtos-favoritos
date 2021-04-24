@@ -5,6 +5,7 @@ Indice
 <!--ts-->
    * [Features](#Features)
    * [Como_Usar](#Como_Usar)
+   * [Endpoints](#Endpoints)
    * [Tecnologias](#Tecnologias)
    * [Autor](#Autor)
 <!--te-->
@@ -41,6 +42,20 @@ $ cd produtos-favoritos/
 $ docker-compose up
 ```
 
+### Endpoints
+
+- Clientes
+    - Uri: api/v1/clientes
+    - Metodo: POST
+    - Body:
+        - nome[String]: Nome do cliente
+        - email[String]: Email do cliente
+    - Response:
+        - HttpStatus: 201 [Cadastro realizado com sucesso]
+        - Header:
+            - Location: url/api/v1/clientes/{id}
+        - HttpStatus: 409 [Cadastro não realizado pois o email ja esta cadastrado]
+        - HttpStatus: 400 [Payload incorreto]
 ### Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:

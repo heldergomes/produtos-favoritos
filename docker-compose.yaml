@@ -1,22 +1,29 @@
-version: '3.7'
+version: '3'
 
 services:
   aplicacao:
-    build: .
-    depends_on:
-      - "banco_dados"
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: produtos_fav/api
+    ports:
+      - '8080:8080'
+      - '5005:5005'
+    environment:
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1g -Xms128m -XX:MaxMetaspaceSize=128m
+      - PROFILE=dev
+    links:
+      - db
 
-  banco_dados:
+  db:
     image: postgres:10.5
     restart: always
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
-    logging:
-      options:
-        max-size: 10m
-        max-file: "3"
+      - POSTGRES_DB=POSTGRESQL
+      - DATABASE_HOST=%
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
     ports:
-      - '5438:5432'
+      - '5432:5432'
     volumes:
       - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql

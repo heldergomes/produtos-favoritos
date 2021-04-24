@@ -1,15 +1,14 @@
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE IF NOT EXISTS cliente (
-   cliente_id uuid DEFAULT uuid_generate_v4 (),
+   cliente_id VARCHAR UNIQUE NOT NULL,
    nome VARCHAR NOT NULL,
    email VARCHAR UNIQUE NOT NULL,
    PRIMARY KEY (cliente_id)
 );
 
 CREATE TABLE IF NOT EXISTS produtos_favoritos (
-   produto_id uuid DEFAULT uuid_generate_v4 (),
-   cliente_id uuid NOT NULL,
+   produto_id VARCHAR UNIQUE NOT NULL,
+   cliente_id VARCHAR NOT NULL,
    image VARCHAR NOT NULL,
    price VARCHAR UNIQUE NOT NULL,
    title VARCHAR NOT NULL,
