@@ -1,17 +1,17 @@
 package com.api.produtosfavoritos.cliente;
 
+import org.hibernate.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/api/v1")
@@ -27,8 +27,7 @@ public class Controller {
     @RequestMapping(value = "/clientes", method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity cadastrarCliente(@Valid @RequestBody ClienteDto dto){
 
-        ModelMapper modelMapper = new ModelMapper();
-        Cliente cliente = modelMapper.map(dto, Cliente.class);
+        Cliente cliente = new ModelMapper().map(dto, Cliente.class);
         log.info("Mapeamento do cliente realizado com sucesso: " + cliente.toString());
 
         cliente.setUUID();
@@ -37,5 +36,19 @@ public class Controller {
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(cliente.getId()).toUri();
         return ResponseEntity.created(uri).build();
+    }
+
+    @RequestMapping(value = "/clientes/{id}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<ClienteDto> buscarCliente(@PathVariable String id){
+
+        Optional<Cliente> cliente = Optional.of(clienteRepository.getOne(id));
+        log.info("Cliente consultado com sucesso: ");
+
+        cliente.orElseThrow(EntityNotFoundException::new);
+
+        ClienteDto dto = new ModelMapper().map(cliente.get(), ClienteDto.class);
+        log.info("Mapeamento do dto feito com sucesso: " + cliente.get().toString());
+
+        return ResponseEntity.ok(dto);
     }
 }

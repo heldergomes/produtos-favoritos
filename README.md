@@ -12,9 +12,9 @@ Indice
 
 ### Features
 
-- [ ] Criar Cliente 
+- [x] Criar Cliente 
   - Nao posso ter dois clientes com o mesmo e-mail 
-- [ ] Consultar Cliente
+- [x] Consultar Cliente
 - [ ] Atualizar Cliente
 - [ ] Deletar Cliente
 - [ ] Autenticacao Cliente
@@ -56,6 +56,15 @@ $ docker-compose up
             - Location: url/api/v1/clientes/{id}
         - HttpStatus: 409 [Cadastro não realizado pois o email ja esta cadastrado]
         - HttpStatus: 400 [Payload incorreto]
+    - Uri: api/v1/clientes/{id}
+    - Metodo: GET
+    - Response:
+        - HttpStatus: 200 [Consulta realizada com sucesso]
+        - Body:
+            - id[String]: id do cliente
+            - nome[String]: Nome do cliente
+            - email[String]: Email do cliente
+        - HttpStatus: 404 [Recurso não encontrado]
 ### Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
