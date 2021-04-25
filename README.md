@@ -16,7 +16,7 @@ Indice
   - Nao posso ter dois clientes com o mesmo e-mail 
 - [x] Consultar Cliente
 - [x] Atualizar Cliente
-- [ ] Deletar Cliente
+- [x] Deletar Cliente
 - [ ] Autenticacao Cliente
 - [ ] Autorizacao Cliente
 - [ ] Criar Produto Favorito
@@ -81,6 +81,7 @@ $ docker-compose up
     - Metodo: DELETE
     - Response:
         - HttpStatus: 200 [Delecao realizada com sucesso]
+        - HttpStatus: 404 [Recurso não encontrado]
 ---
 
 ### Tecnologias
