@@ -1,1 +1,4 @@
+com/api/produtosfavoritos/cliente/AtualizarClienteTestIT.class
+com/api/produtosfavoritos/cliente/CadastrarClienteTestIT.class
+com/api/produtosfavoritos/cliente/ConsultaClienteTestIT.class
 com/api/produtosfavoritos/ProdutosFavoritosApplicationTests.class

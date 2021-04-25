@@ -77,6 +77,11 @@ $ docker-compose up
             - email[String]: Email do cliente
         - HttpStatus: 400 [Payload incorreto]
 ---
+    - Uri: api/v1/clientes/{id}
+    - Metodo: DELETE
+    - Response:
+        - HttpStatus: 200 [Delecao realizada com sucesso]
+---
 
 ### Tecnologias
 

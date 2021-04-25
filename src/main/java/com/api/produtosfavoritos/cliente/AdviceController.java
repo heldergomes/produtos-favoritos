@@ -1,6 +1,7 @@
 package com.api.produtosfavoritos.cliente;
 
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -33,6 +34,15 @@ public class AdviceController {
     @ExceptionHandler(EntityNotFoundException.class)
     @ResponseBody
     ResponseEntity<ErrorInfo> handleEntityNotFoundException(HttpServletRequest req, EntityNotFoundException ex){
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(new ErrorInfo(HttpStatus.NOT_FOUND.value(), HttpStatus.NOT_FOUND.name() ,ex.getMessage(), req.getRequestURL()), headers, HttpStatus.NOT_FOUND);
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(EmptyResultDataAccessException.class)
+    @ResponseBody
+    ResponseEntity<ErrorInfo> handleEmptyResultException(HttpServletRequest req, EmptyResultDataAccessException ex){
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         return new ResponseEntity<>(new ErrorInfo(HttpStatus.NOT_FOUND.value(), HttpStatus.NOT_FOUND.name() ,ex.getMessage(), req.getRequestURL()), headers, HttpStatus.NOT_FOUND);

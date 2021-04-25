@@ -68,4 +68,13 @@ public class Controller {
 
         return ResponseEntity.ok().build();
     }
+
+    @RequestMapping(value = "/clientes/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<ClienteDto> deletarCliente(@PathVariable String id){
+
+        clienteRepository.deleteById(id);
+        log.info("Cliente deletado com sucesso: " + id);
+
+        return ResponseEntity.ok().build();
+    }
 }

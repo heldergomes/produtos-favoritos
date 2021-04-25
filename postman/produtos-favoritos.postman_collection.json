@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "b10d46c0-7edc-4e64-bd42-1b126a226988",
+		"name": "produtos-favoritos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cadastrar Cliente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Correlation-ID",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"{{$randomFirstName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/clientes",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Cliente",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Correlation-ID",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/clientes/54015d00-c43d-44bf-9948-37b0cb0767b0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"clientes",
+						"54015d00-c43d-44bf-9948-37b0cb0767b0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Cliente",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Correlation-ID",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"{{$randomFirstName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/clientes/3f492e51-c7b8-4e0d-96a3-2a39a13bdfd0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"clientes",
+						"3f492e51-c7b8-4e0d-96a3-2a39a13bdfd0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Cliente",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Correlation-ID",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/clientes/3f492e51-c7b8-4e0d-96a3-2a39a13bdfd0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"clientes",
+						"3f492e51-c7b8-4e0d-96a3-2a39a13bdfd0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta Lista Produto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://challenge-api.luizalabs.com/api/product/?page=1",
+					"protocol": "http",
+					"host": [
+						"challenge-api",
+						"luizalabs",
+						"com"
+					],
+					"path": [
+						"api",
+						"product",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta Produto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://challenge-api.luizalabs.com/api/product/958ec015-cfcf-258d-c6df-1721de0ab6ea/",
+					"protocol": "http",
+					"host": [
+						"challenge-api",
+						"luizalabs",
+						"com"
+					],
+					"path": [
+						"api",
+						"product",
+						"958ec015-cfcf-258d-c6df-1721de0ab6ea",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
