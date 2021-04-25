@@ -1,5 +1,6 @@
 package com.api.produtosfavoritos.cliente;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,18 +27,27 @@ public class ConsultaClienteTestIT {
 
     @Autowired
     private ClienteRepository repository;
+    String url = "";
+    String authorization = "";
 
-    @DisplayName("Devo consultar o cliente Caso ele exista")
-    @Test
-    public void devoConsultarOClienteEntaoRetornaHttp200eRecurso() throws Exception {
+    @BeforeEach
+    public void setup() throws Exception {
         this.repository.deleteAll();
         ResultActions response = this.mockMvc.perform(post("/api/v1/clientes")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(getBody()))
                 .andExpect(status().isCreated());
-        String url = response.andReturn().getResponse().getHeader("Location");
+        url = response.andReturn().getResponse().getHeader("Location");
+        authorization = this.mockMvc.perform(post("/login")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(getBody())).andReturn().getResponse().getHeader("Authorization");
+    }
 
-        this.mockMvc.perform(get(url))
+    @DisplayName("Devo consultar o cliente Caso ele exista")
+    @Test
+    public void devoConsultarOClienteEntaoRetornaHttp200eRecurso() throws Exception {
+        this.mockMvc.perform(get(url)
+                .header("Authorization", authorization))
                 .andExpect(status().isOk())
                 .andExpect(content().json(getBodyWithId(url.substring(33))));
     }
@@ -45,8 +55,8 @@ public class ConsultaClienteTestIT {
     @DisplayName("Devo retornar cliente Nao Encontrado Caso cliente nao exista")
     @Test
     public void devoRetornarClienteNaoEncontradoEntaoRetornaHttp404() throws Exception {
-        this.repository.deleteAll();
-        this.mockMvc.perform(get("/api/v1/clientes/a267c21f-78fb-4745-a299-412f8a7f363d6"))
+        this.mockMvc.perform(get("/api/v1/clientes/a267c21f-78fb-4745-a299-412f8a7f363d6")
+                .header("Authorization", authorization))
                 .andExpect(status().isNotFound());
     }
 

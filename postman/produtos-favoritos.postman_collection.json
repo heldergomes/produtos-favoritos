@@ -23,14 +23,16 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nome\": \"{{$randomFirstName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}"
+					"raw": "{\n    \"nome\": \"helder\",\n    \"email\": \"helder@gmail.com\"\n}"
 				},
 				"url": {
-					"raw": "{{url}}/clientes",
+					"raw": "{{url}}/api/v1/clientes",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
+						"api",
+						"v1",
 						"clientes"
 					]
 				}
@@ -46,16 +48,23 @@
 						"key": "X-Correlation-ID",
 						"value": "{{$guid}}",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDAwMjIxfQ.M12BVX_nUzjbLEAhnSIgfRU7Hx6I7zBiHdN4Lnd7ahruen9yJIE1hbpViN2wPNeAYMpxagSeIn-8MAcv9X84bA",
+						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{url}}/clientes/54015d00-c43d-44bf-9948-37b0cb0767b0",
+					"raw": "{{url}}/api/v1/clientes/a0471092-56cb-4615-babb-8a92aff614be",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
+						"api",
+						"v1",
 						"clientes",
-						"54015d00-c43d-44bf-9948-37b0cb0767b0"
+						"a0471092-56cb-4615-babb-8a92aff614be"
 					]
 				}
 			},
@@ -75,20 +84,27 @@
 						"key": "X-Correlation-ID",
 						"value": "{{$guid}}",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDAwMjIxfQ.M12BVX_nUzjbLEAhnSIgfRU7Hx6I7zBiHdN4Lnd7ahruen9yJIE1hbpViN2wPNeAYMpxagSeIn-8MAcv9X84bA",
+						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nome\": \"{{$randomFirstName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}"
+					"raw": "{\n    \"nome\": \"helder\",\n    \"email\": \"helder@gmail.com\"\n}"
 				},
 				"url": {
-					"raw": "{{url}}/clientes/3f492e51-c7b8-4e0d-96a3-2a39a13bdfd0",
+					"raw": "{{url}}/api/v1/clientes/a0471092-56cb-4615-babb-8a92aff614be",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
+						"api",
+						"v1",
 						"clientes",
-						"3f492e51-c7b8-4e0d-96a3-2a39a13bdfd0"
+						"a0471092-56cb-4615-babb-8a92aff614be"
 					]
 				}
 			},
@@ -103,16 +119,23 @@
 						"key": "X-Correlation-ID",
 						"value": "{{$guid}}",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDAwMjIxfQ.M12BVX_nUzjbLEAhnSIgfRU7Hx6I7zBiHdN4Lnd7ahruen9yJIE1hbpViN2wPNeAYMpxagSeIn-8MAcv9X84bA",
+						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{url}}/clientes/3f492e51-c7b8-4e0d-96a3-2a39a13bdfd0",
+					"raw": "{{url}}/api/v1/clientes/a0471092-56cb-4615-babb-8a92aff614be",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
+						"api",
+						"v1",
 						"clientes",
-						"3f492e51-c7b8-4e0d-96a3-2a39a13bdfd0"
+						"a0471092-56cb-4615-babb-8a92aff614be"
 					]
 				}
 			},
@@ -164,6 +187,38 @@
 						"product",
 						"958ec015-cfcf-258d-c6df-1721de0ab6ea",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Cliente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Correlation-ID",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"helder\",\n    \"email\": \"helder@gmail.com\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
 					]
 				}
 			},

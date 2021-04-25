@@ -1,4 +1,6 @@
+/Users/tomate/produtos-favoritos/src/test/java/com/api/produtosfavoritos/cliente/CadastrarClienteTestIT.java
 /Users/tomate/produtos-favoritos/src/test/java/com/api/produtosfavoritos/ProdutosFavoritosApplicationTests.java
-/Users/tomate/produtos-favoritos/src/test/java/com/api/produtosfavoritos/cliente/ConsultaClienteTest.java
-/Users/tomate/produtos-favoritos/src/test/java/com/api/produtosfavoritos/cliente/AtualizarClienteTest.java
-/Users/tomate/produtos-favoritos/src/test/java/com/api/produtosfavoritos/cliente/CadastrarClienteTest.java
+/Users/tomate/produtos-favoritos/src/test/java/com/api/produtosfavoritos/cliente/AtualizarClienteTestIT.java
+/Users/tomate/produtos-favoritos/src/test/java/com/api/produtosfavoritos/cliente/LoginClienteTestIT.java
+/Users/tomate/produtos-favoritos/src/test/java/com/api/produtosfavoritos/cliente/DeletarClienteTestIT.java
+/Users/tomate/produtos-favoritos/src/test/java/com/api/produtosfavoritos/cliente/ConsultaClienteTestIT.java

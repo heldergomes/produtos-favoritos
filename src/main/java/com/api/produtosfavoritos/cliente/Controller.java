@@ -1,6 +1,5 @@
 package com.api.produtosfavoritos.cliente;
 
-import org.hibernate.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

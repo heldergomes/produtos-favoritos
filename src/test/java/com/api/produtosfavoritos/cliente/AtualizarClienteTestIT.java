@@ -1,5 +1,6 @@
 package com.api.produtosfavoritos.cliente;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,7 +13,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
@@ -25,18 +25,27 @@ public class AtualizarClienteTestIT {
 
     @Autowired
     private ClienteRepository repository;
+    String url = "";
+    String authorization = "";
 
-    @DisplayName("Devo atualizar o cliente Caso ele exista")
-    @Test
-    public void devoAtualizarOClienteEntaoRetornaHttp200() throws Exception {
+    @BeforeEach
+    public void setup() throws Exception {
         this.repository.deleteAll();
         ResultActions response = this.mockMvc.perform(post("/api/v1/clientes")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(getBody()))
                 .andExpect(status().isCreated());
-        String url = response.andReturn().getResponse().getHeader("Location");
+        url = response.andReturn().getResponse().getHeader("Location");
+        authorization = this.mockMvc.perform(post("/login")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(getBody())).andReturn().getResponse().getHeader("Authorization");
+    }
 
+    @DisplayName("Devo atualizar o cliente Caso ele exista")
+    @Test
+    public void devoAtualizarOClienteEntaoRetornaHttp200() throws Exception {
         this.mockMvc.perform(put(url)
+                .header("Authorization", authorization)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(getBody().replace("\"helder@gmail.com\"", "\"helder22@gmail.com\"")))
                 .andExpect(status().isOk());
@@ -45,8 +54,8 @@ public class AtualizarClienteTestIT {
     @DisplayName("Nao Devo atualizar o cliente Caso ele nao exista")
     @Test
     public void naoDevoAtualizarOClienteEntaoRetornaHttp404() throws Exception {
-        this.repository.deleteAll();
         this.mockMvc.perform(put("/api/v1/clientes/a267c21f-78fb-4745-a299-412f8a7f363d6")
+                .header("Authorization", authorization)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(getBody().replace("\"helder@gmail.com\"", "\"helder22@gmail.com\"")))
                 .andExpect(status().isNotFound());

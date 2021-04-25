@@ -17,7 +17,7 @@ Indice
 - [x] Consultar Cliente
 - [x] Atualizar Cliente
 - [x] Deletar Cliente
-- [ ] Autenticacao Cliente
+- [x] Autenticacao Cliente
 - [ ] Autorizacao Cliente
 - [ ] Criar Produto Favorito
   - Adicionar a lista de produtos favoritos apenas produtos cadastrados
@@ -46,7 +46,7 @@ $ docker-compose up
 
 - Clientes
 ---
-    - Uri: api/v1/clientes
+    - Uri: /api/v1/clientes
     - Metodo: POST
     - Body:
         - nome[String]: Nome do cliente
@@ -58,7 +58,7 @@ $ docker-compose up
         - HttpStatus: 409 [Cadastro não realizado pois o email ja esta cadastrado]
         - HttpStatus: 400 [Payload incorreto]
 ---
-    - Uri: api/v1/clientes/{id}
+    - Uri: /api/v1/clientes/{id}
     - Metodo: GET
     - Response:
         - HttpStatus: 200 [Consulta realizada com sucesso]
@@ -66,22 +66,38 @@ $ docker-compose up
             - id[String]: id do cliente
             - nome[String]: Nome do cliente
             - email[String]: Email do cliente
+        - HttpStatus: 403 [Acesso Nao Autorizado]
         - HttpStatus: 404 [Recurso não encontrado]
 ---
-    - Uri: api/v1/clientes/{id}
+    - Uri: /api/v1/clientes/{id}
     - Metodo: PUT
     - Response:
         - HttpStatus: 200 [Atualizacao realizada com sucesso]
         - Body:
             - nome[String]: Nome do cliente
             - email[String]: Email do cliente
+        - HttpStatus: 403 [Acesso Nao Autorizado]
         - HttpStatus: 400 [Payload incorreto]
 ---
-    - Uri: api/v1/clientes/{id}
+    - Uri: /api/v1/clientes/{id}
     - Metodo: DELETE
     - Response:
         - HttpStatus: 200 [Delecao realizada com sucesso]
+        - HttpStatus: 403 [Acesso Nao Autorizado]
         - HttpStatus: 404 [Recurso não encontrado]
+---
+    - Uri: /login
+    - Metodo: POST
+    - Body:
+        - nome[String]: Nome do cliente
+        - email[String]: Email do cliente
+    - Response:
+        - HttpStatus: 200 [Login Realizado com sucesso]
+        - Body:
+            - id[String]: id do cliente
+        - Header:
+            - Authorization[String]: Token de acesso
+        - HttpStatus: 401 [Login nao autorizado]
 ---
 
 ### Tecnologias
