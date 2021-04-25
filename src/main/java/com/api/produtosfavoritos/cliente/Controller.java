@@ -51,4 +51,21 @@ public class Controller {
 
         return ResponseEntity.ok(dto);
     }
+
+    @RequestMapping(value = "/clientes/{id}", method = RequestMethod.PUT, consumes = "application/json")
+    public ResponseEntity<ClienteDto> atualizarCliente(@PathVariable String id, @Valid @RequestBody ClienteDto dto){
+
+        Optional<Cliente> clienteOptional = Optional.of(clienteRepository.getOne(id));
+        log.info("Cliente consultado com sucesso: ");
+        clienteOptional.orElseThrow(EntityNotFoundException::new);
+
+        Cliente cliente = new ModelMapper().map(dto, Cliente.class);
+        cliente.setId(id);
+        log.info("Mapeamento do cliente realizado com sucesso: " + cliente.toString());
+
+        clienteRepository.save(cliente);
+        log.info("Cliente atualizado com sucesso: " + cliente.toString());
+
+        return ResponseEntity.ok().build();
+    }
 }
