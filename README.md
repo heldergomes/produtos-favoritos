@@ -18,8 +18,8 @@ Indice
 - [x] Atualizar Cliente
 - [x] Deletar Cliente
 - [x] Autenticacao Cliente
-- [ ] Autorizacao Cliente
-- [ ] Criar Produto Favorito
+- [x] Autorizacao Cliente
+- [x] Criar Produto Favorito
   - Adicionar a lista de produtos favoritos apenas produtos cadastrados
   - Nao deve haver dois produtos iguais na lista de produtos favoritos
 - [ ] Consultar Lista Produtos Favoritos
@@ -39,7 +39,7 @@ $ git clone https://github.com/heldergomes/produtos-favoritos.git
 $ cd produtos-favoritos/
 
 # Execute o comando:
-$ docker-compose up
+$ docker-compose up --build --force-recreate
 ```
 
 ### Endpoints
@@ -48,6 +48,9 @@ $ docker-compose up
 ---
     - Uri: /api/v1/clientes
     - Metodo: POST
+    - Header:
+        - Content-Type: application/json
+        - X-Correlation-ID: UUID Randomico
     - Body:
         - nome[String]: Nome do cliente
         - email[String]: Email do cliente
@@ -60,6 +63,9 @@ $ docker-compose up
 ---
     - Uri: /api/v1/clientes/{id}
     - Metodo: GET
+    - Header:
+        - Authorization: Token de Acesso do cliente logado
+        - X-Correlation-ID: UUID Randomico
     - Response:
         - HttpStatus: 200 [Consulta realizada com sucesso]
         - Body:
@@ -71,6 +77,10 @@ $ docker-compose up
 ---
     - Uri: /api/v1/clientes/{id}
     - Metodo: PUT
+    - Header:
+        - Content-Type: application/json
+        - Authorization: Token de Acesso do cliente logado
+        - X-Correlation-ID: UUID Randomico
     - Response:
         - HttpStatus: 200 [Atualizacao realizada com sucesso]
         - Body:
@@ -81,6 +91,9 @@ $ docker-compose up
 ---
     - Uri: /api/v1/clientes/{id}
     - Metodo: DELETE
+    - Header:
+        - Authorization: Token de Acesso do cliente logado
+        - X-Correlation-ID: UUID Randomico
     - Response:
         - HttpStatus: 200 [Delecao realizada com sucesso]
         - HttpStatus: 403 [Acesso Nao Autorizado]
@@ -88,6 +101,9 @@ $ docker-compose up
 ---
     - Uri: /login
     - Metodo: POST
+    - Header:
+        - Content-Type: application/json
+        - X-Correlation-ID: UUID Randomico
     - Body:
         - nome[String]: Nome do cliente
         - email[String]: Email do cliente
@@ -98,6 +114,19 @@ $ docker-compose up
         - Header:
             - Authorization[String]: Token de acesso
         - HttpStatus: 401 [Login nao autorizado]
+---
+
+- Produtos Favoritos
+---
+    - Uri: /api/v1/clientes/{id}/produtosfavoritos/{id_produto}
+    - Metodo: POST
+    - Header:
+        - Authorization: Token de Acesso do cliente logado
+        - X-Correlation-ID: UUID Randomico
+    - Response:
+        - HttpStatus: 201 [Cadastro realizado com sucesso]
+        - HttpStatus: 409 [Cadastro não realizado pois o email ja esta cadastrado]
+        - HttpStatus: 404 [Recurso não encontrado]
 ---
 
 ### Tecnologias

@@ -1,4 +1,8 @@
-com/api/produtosfavoritos/cliente/AtualizarClienteTestIT.class
-com/api/produtosfavoritos/cliente/CadastrarClienteTestIT.class
-com/api/produtosfavoritos/cliente/ConsultaClienteTestIT.class
+com/api/produtosfavoritos/cliente/AtualizarClienteTest.class
+com/api/produtosfavoritos/cliente/ConsultaClienteTest.class
+com/api/produtosfavoritos/cliente/DeletarClienteTest.class
+com/api/produtosfavoritos/config/WireMockInitializer.class
+com/api/produtosfavoritos/cliente/LoginClienteTest.class
+com/api/produtosfavoritos/cliente/CadastrarClienteTest.class
+com/api/produtosfavoritos/produtofavorito/CadastroProdutoFavoritoTest.class
 com/api/produtosfavoritos/ProdutosFavoritosApplicationTests.class

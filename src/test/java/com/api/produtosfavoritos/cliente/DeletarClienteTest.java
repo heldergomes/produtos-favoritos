@@ -18,7 +18,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class AtualizarClienteTestIT {
+@DisplayName("Delecao Cliente")
+public class DeletarClienteTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -41,23 +42,19 @@ public class AtualizarClienteTestIT {
                 .content(getBody())).andReturn().getResponse().getHeader("Authorization");
     }
 
-    @DisplayName("Devo atualizar o cliente Caso ele exista")
+    @DisplayName("Devo deletar o cliente Caso ele exista")
     @Test
-    public void devoAtualizarOClienteEntaoRetornaHttp200() throws Exception {
-        this.mockMvc.perform(put(url)
-                .header("Authorization", authorization)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(getBody().replace("\"helder@gmail.com\"", "\"helder22@gmail.com\"")))
+    public void devoDeletarOClienteEntaoRetornaHttp200() throws Exception {
+        this.mockMvc.perform(delete(url)
+                .header("Authorization", authorization))
                 .andExpect(status().isOk());
     }
 
-    @DisplayName("Nao Devo atualizar o cliente Caso ele nao exista")
+    @DisplayName("Devo retornar cliente Nao Encontrado Caso cliente nao exista")
     @Test
-    public void naoDevoAtualizarOClienteEntaoRetornaHttp404() throws Exception {
-        this.mockMvc.perform(put("/api/v1/clientes/a267c21f-78fb-4745-a299-412f8a7f363d6")
-                .header("Authorization", authorization)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(getBody().replace("\"helder@gmail.com\"", "\"helder22@gmail.com\"")))
+    public void devoRetornarClienteNaoEncontradoEntaoRetornaHttp404() throws Exception {
+        this.mockMvc.perform(delete("/api/v1/clientes/a267c21f-78fb-4745-a299-412f8a7f363d6")
+                .header("Authorization", authorization))
                 .andExpect(status().isNotFound());
     }
 

@@ -14,12 +14,12 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/api/v1")
-public class Controller {
+public class ControllerCliente {
 
     Logger log = LoggerFactory.getLogger("Controller");
     private final ClienteRepository clienteRepository;
 
-    public Controller(ClienteRepository clienteRepository) {
+    public ControllerCliente(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }
 

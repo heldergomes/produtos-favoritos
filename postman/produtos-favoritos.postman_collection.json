@@ -51,12 +51,12 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDAwMjIxfQ.M12BVX_nUzjbLEAhnSIgfRU7Hx6I7zBiHdN4Lnd7ahruen9yJIE1hbpViN2wPNeAYMpxagSeIn-8MAcv9X84bA",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDIwMjkwfQ.j0sDfQwNlzVILFdtJ878egFm1ltTPXD2EdMMVkDLU5TZVZlfaLHCaXsrHJVRaelDi9YrBity_F7u-XUOeaf_GQ",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{url}}/api/v1/clientes/a0471092-56cb-4615-babb-8a92aff614be",
+					"raw": "{{url}}/api/v1/clientes/df7bf836-2fc7-4ccc-b26b-b74737b2714b",
 					"host": [
 						"{{url}}"
 					],
@@ -64,7 +64,7 @@
 						"api",
 						"v1",
 						"clientes",
-						"a0471092-56cb-4615-babb-8a92aff614be"
+						"df7bf836-2fc7-4ccc-b26b-b74737b2714b"
 					]
 				}
 			},
@@ -87,7 +87,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDAwMjIxfQ.M12BVX_nUzjbLEAhnSIgfRU7Hx6I7zBiHdN4Lnd7ahruen9yJIE1hbpViN2wPNeAYMpxagSeIn-8MAcv9X84bA",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDIwMjkwfQ.j0sDfQwNlzVILFdtJ878egFm1ltTPXD2EdMMVkDLU5TZVZlfaLHCaXsrHJVRaelDi9YrBity_F7u-XUOeaf_GQ",
 						"type": "text"
 					}
 				],
@@ -96,7 +96,7 @@
 					"raw": "{\n    \"nome\": \"helder\",\n    \"email\": \"helder@gmail.com\"\n}"
 				},
 				"url": {
-					"raw": "{{url}}/api/v1/clientes/a0471092-56cb-4615-babb-8a92aff614be",
+					"raw": "{{url}}/api/v1/clientes/df7bf836-2fc7-4ccc-b26b-b74737b2714b",
 					"host": [
 						"{{url}}"
 					],
@@ -104,7 +104,7 @@
 						"api",
 						"v1",
 						"clientes",
-						"a0471092-56cb-4615-babb-8a92aff614be"
+						"df7bf836-2fc7-4ccc-b26b-b74737b2714b"
 					]
 				}
 			},
@@ -219,6 +219,39 @@
 					],
 					"path": [
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Produto Favorito",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDIxMTQyfQ.zcfqDmkfOM1VTfZD7-73-fjh4QgNuqVHnhKZKl7N7kDQLUzMwGL8jIqUvHWT0HvHMRPJBtlx1I6G24wTxDIZnw",
+						"type": "text"
+					},
+					{
+						"key": "X-Correlation-ID",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/clientes/7bfcb2aa-aaa1-45e5-9fee-00b521d836ce/produtosfavoritos/958ec015-cfcf-258d-c6df-1721de0ab6ea",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clientes",
+						"7bfcb2aa-aaa1-45e5-9fee-00b521d836ce",
+						"produtosfavoritos",
+						"958ec015-cfcf-258d-c6df-1721de0ab6ea"
 					]
 				}
 			},
