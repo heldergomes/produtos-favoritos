@@ -22,7 +22,7 @@ Indice
 - [x] Criar Produto Favorito
   - Adicionar a lista de produtos favoritos apenas produtos cadastrados
   - Nao deve haver dois produtos iguais na lista de produtos favoritos
-- [ ] Consultar Lista Produtos Favoritos
+- [x] Consultar Lista Produtos Favoritos
 
 ### Como_Usar
 
@@ -35,6 +35,8 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 # Clone este repositório
 $ git clone https://github.com/heldergomes/produtos-favoritos.git
 
+# Execute o maven install na IDE de sua preferencia
+
 # Acesse o prompt e entre na rota da api
 $ cd produtos-favoritos/
 
@@ -46,6 +48,7 @@ $ docker-compose up --build --force-recreate
 
 - Clientes
 ---
+    - CADASTRO CLIENTE
     - Uri: /api/v1/clientes
     - Metodo: POST
     - Header:
@@ -61,6 +64,7 @@ $ docker-compose up --build --force-recreate
         - HttpStatus: 409 [Cadastro não realizado pois o email ja esta cadastrado]
         - HttpStatus: 400 [Payload incorreto]
 ---
+    - CONSULTA CLIENTE
     - Uri: /api/v1/clientes/{id}
     - Metodo: GET
     - Header:
@@ -75,6 +79,7 @@ $ docker-compose up --build --force-recreate
         - HttpStatus: 403 [Acesso Nao Autorizado]
         - HttpStatus: 404 [Recurso não encontrado]
 ---
+    - ATUALIZACAO CLIENTE
     - Uri: /api/v1/clientes/{id}
     - Metodo: PUT
     - Header:
@@ -89,6 +94,7 @@ $ docker-compose up --build --force-recreate
         - HttpStatus: 403 [Acesso Nao Autorizado]
         - HttpStatus: 400 [Payload incorreto]
 ---
+    - DELECAO CLIENTE
     - Uri: /api/v1/clientes/{id}
     - Metodo: DELETE
     - Header:
@@ -99,6 +105,7 @@ $ docker-compose up --build --force-recreate
         - HttpStatus: 403 [Acesso Nao Autorizado]
         - HttpStatus: 404 [Recurso não encontrado]
 ---
+    - LOGIN CLIENTE
     - Uri: /login
     - Metodo: POST
     - Header:
@@ -118,6 +125,7 @@ $ docker-compose up --build --force-recreate
 
 - Produtos Favoritos
 ---
+    - CADASTRO PRODUTO FAVORITO
     - Uri: /api/v1/clientes/{id}/produtosfavoritos/{id_produto}
     - Metodo: POST
     - Header:
@@ -127,6 +135,20 @@ $ docker-compose up --build --force-recreate
         - HttpStatus: 201 [Cadastro realizado com sucesso]
         - HttpStatus: 409 [Cadastro não realizado pois o email ja esta cadastrado]
         - HttpStatus: 404 [Recurso não encontrado]
+        - HttpStatus: 403 [Acesso Nao Autorizado]
+---
+    - CONSULTA LISTA PRODUTOS FAVORITOS DO CLIENTE
+    - Uri: /api/v1/clientes/{id}/produtosfavoritos
+    - Metodo: GET
+    - Query Params
+        - page: Numero da pagina da lista
+        - size: Quantidade de registros que a pagina deve retornar
+    - Header:
+        - Authorization: Token de Acesso do cliente logado
+        - X-Correlation-ID: UUID Randomico
+    - Response:
+        - HttpStatus: 200 [Consulta de Lista de produtos favoritos com sucesso]
+        - HttpStatus: 403 [Acesso Nao Autorizado]
 ---
 
 ### Tecnologias

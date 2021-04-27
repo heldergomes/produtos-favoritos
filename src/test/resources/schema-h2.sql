@@ -6,12 +6,12 @@ CREATE TABLE IF NOT EXISTS cliente (
 );
 
 CREATE TABLE IF NOT EXISTS produtos_favoritos (
-   produto_id VARCHAR UNIQUE NOT NULL,
+   produto_id VARCHAR NOT NULL,
    cliente_id VARCHAR NOT NULL,
    image VARCHAR NOT NULL,
-   price VARCHAR NOT NULL,
+   price DECIMAL NOT NULL,
    title VARCHAR NOT NULL,
-   review_score VARCHAR NULL,
+   review_score DECIMAL,
    PRIMARY KEY (produto_id, cliente_id),
    FOREIGN KEY (cliente_id)
         REFERENCES cliente (cliente_id)

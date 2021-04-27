@@ -147,7 +147,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://challenge-api.luizalabs.com/api/product/?page=1",
+					"raw": "http://challenge-api.luizalabs.com/api/product/?page=2",
 					"protocol": "http",
 					"host": [
 						"challenge-api",
@@ -162,7 +162,7 @@
 					"query": [
 						{
 							"key": "page",
-							"value": "1"
+							"value": "2"
 						}
 					]
 				}
@@ -231,7 +231,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDIxMTQyfQ.zcfqDmkfOM1VTfZD7-73-fjh4QgNuqVHnhKZKl7N7kDQLUzMwGL8jIqUvHWT0HvHMRPJBtlx1I6G24wTxDIZnw",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDk2NzIxfQ.A8Q0-wP_OuFo6aXB2wMLV1d2a7UcnHancDxkbs6-FXBXW2D7bVrjr4lQJglLJnGhqJ_eHAxjBz1uGrpO3ZC84g",
 						"type": "text"
 					},
 					{
@@ -241,7 +241,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/api/v1/clientes/7bfcb2aa-aaa1-45e5-9fee-00b521d836ce/produtosfavoritos/958ec015-cfcf-258d-c6df-1721de0ab6ea",
+					"raw": "{{url}}/api/v1/clientes/ec21b6a0-d93f-4460-876c-6184a8035558/produtosfavoritos/ed99418b-af68-b68c-32b1-0d3cde4fc4bf",
 					"host": [
 						"{{url}}"
 					],
@@ -249,9 +249,51 @@
 						"api",
 						"v1",
 						"clientes",
-						"7bfcb2aa-aaa1-45e5-9fee-00b521d836ce",
+						"ec21b6a0-d93f-4460-876c-6184a8035558",
 						"produtosfavoritos",
-						"958ec015-cfcf-258d-c6df-1721de0ab6ea"
+						"ed99418b-af68-b68c-32b1-0d3cde4fc4bf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta Lista Produto Favorito",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDk2NzIxfQ.A8Q0-wP_OuFo6aXB2wMLV1d2a7UcnHancDxkbs6-FXBXW2D7bVrjr4lQJglLJnGhqJ_eHAxjBz1uGrpO3ZC84g",
+						"type": "text"
+					},
+					{
+						"key": "X-Correlation-ID",
+						"value": "{{$guid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/clientes/7dd74303-075d-4216-81d4-1de2bc6fe5ae/produtosfavoritos?page=1&size=3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clientes",
+						"7dd74303-075d-4216-81d4-1de2bc6fe5ae",
+						"produtosfavoritos"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "3"
+						}
 					]
 				}
 			},
