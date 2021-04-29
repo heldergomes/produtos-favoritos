@@ -2,7 +2,6 @@ com/api/produtosfavoritos/cliente/ControllerCliente.class
 com/api/produtosfavoritos/cliente/Cliente.class
 com/api/produtosfavoritos/security/JwtAuthenticationFilter.class
 com/api/produtosfavoritos/security/ConsultaClienteSecurity.class
-com/api/produtosfavoritos/cliente/ClienteRepository.class
 com/api/produtosfavoritos/config/SecurityConfig.class
 com/api/produtosfavoritos/cliente/ClienteDto.class
 com/api/produtosfavoritos/cliente/AdviceController.class
@@ -12,12 +11,14 @@ com/api/produtosfavoritos/security/CredenciaisDTO.class
 com/api/produtosfavoritos/cliente/ErrorInfo.class
 com/api/produtosfavoritos/config/WebConfig.class
 com/api/produtosfavoritos/security/JwtAuthorizationFilter.class
+com/api/produtosfavoritos/repository/ClienteRepository.class
 com/api/produtosfavoritos/security/JwtAuthenticationFailureHandler.class
 com/api/produtosfavoritos/config/CorrelationIDInterceptor.class
 com/api/produtosfavoritos/security/ClienteSecurity.class
+com/api/produtosfavoritos/produtosfavoritos/Produto.class
 com/api/produtosfavoritos/security/JwtUtil.class
 com/api/produtosfavoritos/produtosfavoritos/ProdutoFavoritoRepository.class
 com/api/produtosfavoritos/produtosfavoritos/ProdutoApiRequest.class
-com/api/produtosfavoritos/produtosfavoritos/ProdutoFavorito.class
+com/api/produtosfavoritos/repository/ServiceCliente.class
 com/api/produtosfavoritos/produtosfavoritos/ControllerProdutoFavorito.class
 com/api/produtosfavoritos/ProdutosFavoritosApplication.class

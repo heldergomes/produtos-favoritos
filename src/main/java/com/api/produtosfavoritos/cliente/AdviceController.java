@@ -1,5 +1,7 @@
 package com.api.produtosfavoritos.cliente;
 
+import com.api.produtosfavoritos.exception.ChaveDuplicadaException;
+import com.api.produtosfavoritos.exception.EntidadeNaoEncontradaException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -14,8 +16,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
-import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,9 +26,19 @@ public class AdviceController {
     Logger log = LoggerFactory.getLogger("AdviceController");
 
     @ResponseStatus(HttpStatus.CONFLICT)
+    @ExceptionHandler(ChaveDuplicadaException.class)
+    @ResponseBody
+    ResponseEntity<ErrorInfo> handleChaveDuplicadaException(HttpServletRequest req, ChaveDuplicadaException ex){
+        log.error("Erro de integridade de dados: " + ex.getMessage());
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(new ErrorInfo(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT.name() ,ex.getMessage(), req.getRequestURL()), headers, HttpStatus.CONFLICT);
+    }
+
+    @ResponseStatus(HttpStatus.CONFLICT)
     @ExceptionHandler(DataIntegrityViolationException.class)
     @ResponseBody
-    ResponseEntity<ErrorInfo> handleDataIntegrationException(HttpServletRequest req, DataIntegrityViolationException ex){
+    ResponseEntity<ErrorInfo> handleDataIntegrityException(HttpServletRequest req, DataIntegrityViolationException ex){
         log.error("Erro de integridade de dados: " + ex.getMessage());
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -36,9 +46,9 @@ public class AdviceController {
     }
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(EntityNotFoundException.class)
+    @ExceptionHandler(EntidadeNaoEncontradaException.class)
     @ResponseBody
-    ResponseEntity<ErrorInfo> handleEntityNotFoundException(HttpServletRequest req, EntityNotFoundException ex){
+    ResponseEntity<ErrorInfo> handleEntidadeNaoEncontradaException(HttpServletRequest req, EntidadeNaoEncontradaException ex){
         log.error("Erro de entidade nao encontrada: " + ex.getMessage());
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);

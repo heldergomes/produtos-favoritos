@@ -8,6 +8,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.event.ContextClosedEvent;
 
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class WireMockInitializer
         implements ApplicationContextInitializer<ConfigurableApplicationContext> {
@@ -31,4 +32,5 @@ public class WireMockInitializer
                 .of(Map.of("wiremock.server.port", "http://localhost:" + wireMockServer.port()))
                 .applyTo(configurableApplicationContext);
     }
+
 }

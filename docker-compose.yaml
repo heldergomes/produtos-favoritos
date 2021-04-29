@@ -16,14 +16,11 @@ services:
       - db
 
   db:
-    image: postgres:10.5
-    restart: always
+    image: mongo
+    container_name: mongodb
     environment:
-      - POSTGRES_DB=POSTGRESQL
-      - DATABASE_HOST=%
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
+      - PUID=1000
+      - PGID=1000
     ports:
-      - '5432:5432'
-    volumes:
-      - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      - 27017:27017
+

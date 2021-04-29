@@ -1,17 +1,19 @@
 package com.api.produtosfavoritos.cliente;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.UUID;
 
-@Entity(name = "cliente")
-@Table(name = "cliente")
+@Document(collection = "cliente")
 public class Cliente {
 
     @Id
-    @Column(name = "cliente_id")
     private String id;
-    private String nome;
+    @Indexed(unique = true)
     private String email;
+    private String nome;
 
     @Override
     public String toString() {

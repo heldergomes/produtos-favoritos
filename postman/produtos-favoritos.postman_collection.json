@@ -23,7 +23,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nome\": \"helder\",\n    \"email\": \"helder@gmail.com\"\n}"
+					"raw": "{\n    \"nome\": \"helder2\",\n    \"email\": \"helder2@gmail.com\"\n}"
 				},
 				"url": {
 					"raw": "{{url}}/api/v1/clientes",
@@ -51,12 +51,12 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDIwMjkwfQ.j0sDfQwNlzVILFdtJ878egFm1ltTPXD2EdMMVkDLU5TZVZlfaLHCaXsrHJVRaelDi9YrBity_F7u-XUOeaf_GQ",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NTkwNzY0fQ.t0XKPNcaw6J-IfAepQDvHy0QF4drcihcTAFn3bvEV6YGMry1Lwp85nBmknv6TYQ0U88VhRqzmL_U8-bo95_Q6w",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{url}}/api/v1/clientes/df7bf836-2fc7-4ccc-b26b-b74737b2714b",
+					"raw": "{{url}}/api/v1/clientes/f4209a04-3e23-4354-9e9e-cdd3ee243217",
 					"host": [
 						"{{url}}"
 					],
@@ -64,7 +64,7 @@
 						"api",
 						"v1",
 						"clientes",
-						"df7bf836-2fc7-4ccc-b26b-b74737b2714b"
+						"f4209a04-3e23-4354-9e9e-cdd3ee243217"
 					]
 				}
 			},
@@ -87,7 +87,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDIwMjkwfQ.j0sDfQwNlzVILFdtJ878egFm1ltTPXD2EdMMVkDLU5TZVZlfaLHCaXsrHJVRaelDi9YrBity_F7u-XUOeaf_GQ",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NTkwNzY0fQ.t0XKPNcaw6J-IfAepQDvHy0QF4drcihcTAFn3bvEV6YGMry1Lwp85nBmknv6TYQ0U88VhRqzmL_U8-bo95_Q6w",
 						"type": "text"
 					}
 				],
@@ -96,7 +96,7 @@
 					"raw": "{\n    \"nome\": \"helder\",\n    \"email\": \"helder@gmail.com\"\n}"
 				},
 				"url": {
-					"raw": "{{url}}/api/v1/clientes/df7bf836-2fc7-4ccc-b26b-b74737b2714b",
+					"raw": "{{url}}/api/v1/clientes/f4209a04-3e23-4354-9e9e-cdd3ee243217",
 					"host": [
 						"{{url}}"
 					],
@@ -104,7 +104,7 @@
 						"api",
 						"v1",
 						"clientes",
-						"df7bf836-2fc7-4ccc-b26b-b74737b2714b"
+						"f4209a04-3e23-4354-9e9e-cdd3ee243217"
 					]
 				}
 			},
@@ -122,12 +122,12 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDAwMjIxfQ.M12BVX_nUzjbLEAhnSIgfRU7Hx6I7zBiHdN4Lnd7ahruen9yJIE1hbpViN2wPNeAYMpxagSeIn-8MAcv9X84bA",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NTkwNzY0fQ.t0XKPNcaw6J-IfAepQDvHy0QF4drcihcTAFn3bvEV6YGMry1Lwp85nBmknv6TYQ0U88VhRqzmL_U8-bo95_Q6w",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{url}}/api/v1/clientes/a0471092-56cb-4615-babb-8a92aff614be",
+					"raw": "{{url}}/api/v1/clientes/f4209a04-3e23-4354-9e9e-cdd3ee243217",
 					"host": [
 						"{{url}}"
 					],
@@ -135,7 +135,7 @@
 						"api",
 						"v1",
 						"clientes",
-						"a0471092-56cb-4615-babb-8a92aff614be"
+						"f4209a04-3e23-4354-9e9e-cdd3ee243217"
 					]
 				}
 			},
@@ -210,7 +210,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nome\": \"helder\",\n    \"email\": \"helder@gmail.com\"\n}"
+					"raw": "{\n    \"nome\": \"helder2\",\n    \"email\": \"helder2@gmail.com\"\n}"
 				},
 				"url": {
 					"raw": "{{url}}/login",
@@ -231,17 +231,26 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDk2NzIxfQ.A8Q0-wP_OuFo6aXB2wMLV1d2a7UcnHancDxkbs6-FXBXW2D7bVrjr4lQJglLJnGhqJ_eHAxjBz1uGrpO3ZC84g",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NjcxMTQxfQ.icIggziwmHk6xaaQVa_P-hQ5iyYJwqynHKLCfB4IbzaS7de7hRSd9fSWeMEbFm3bGEZMytoAOBoVn1lZwIr6kg",
 						"type": "text"
 					},
 					{
 						"key": "X-Correlation-ID",
 						"value": "{{$guid}}",
 						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"favorito\"\n}"
+				},
 				"url": {
-					"raw": "{{url}}/api/v1/clientes/ec21b6a0-d93f-4460-876c-6184a8035558/produtosfavoritos/ed99418b-af68-b68c-32b1-0d3cde4fc4bf",
+					"raw": "{{url}}/api/v1/clientes/ef381d1a-01f9-4c6b-b0a1-c81083b7da95/produtos/ed99418b-af68-b68c-32b1-0d3cde4fc4bf",
 					"host": [
 						"{{url}}"
 					],
@@ -249,8 +258,8 @@
 						"api",
 						"v1",
 						"clientes",
-						"ec21b6a0-d93f-4460-876c-6184a8035558",
-						"produtosfavoritos",
+						"ef381d1a-01f9-4c6b-b0a1-c81083b7da95",
+						"produtos",
 						"ed99418b-af68-b68c-32b1-0d3cde4fc4bf"
 					]
 				}
@@ -264,7 +273,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NDk2NzIxfQ.A8Q0-wP_OuFo6aXB2wMLV1d2a7UcnHancDxkbs6-FXBXW2D7bVrjr4lQJglLJnGhqJ_eHAxjBz1uGrpO3ZC84g",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXIyQGdtYWlsLmNvbSIsImV4cCI6MTYxOTY3MTM2MX0.kAI79bWbZu3gc09kbTyYrX3Tk1w-q6kUblT_vBXNX1sJ5rDYAB4L5nXgQ1jvZ-OryRb8TgpEiSTy8PTbanKH1A",
 						"type": "text"
 					},
 					{
@@ -274,7 +283,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/api/v1/clientes/7dd74303-075d-4216-81d4-1de2bc6fe5ae/produtosfavoritos?page=1&size=3",
+					"raw": "{{url}}/api/v1/clientes/dfdede54-d37a-441c-ae50-c856ae869a46/produtos?status=favorito",
 					"host": [
 						"{{url}}"
 					],
@@ -282,17 +291,13 @@
 						"api",
 						"v1",
 						"clientes",
-						"7dd74303-075d-4216-81d4-1de2bc6fe5ae",
-						"produtosfavoritos"
+						"dfdede54-d37a-441c-ae50-c856ae869a46",
+						"produtos"
 					],
 					"query": [
 						{
-							"key": "page",
-							"value": "1"
-						},
-						{
-							"key": "size",
-							"value": "3"
+							"key": "status",
+							"value": "favorito"
 						}
 					]
 				}

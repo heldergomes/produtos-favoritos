@@ -126,8 +126,10 @@ $ docker-compose up --build --force-recreate
 - Produtos Favoritos
 ---
     - CADASTRO PRODUTO FAVORITO
-    - Uri: /api/v1/clientes/{id}/produtosfavoritos/{id_produto}
+    - Uri: /api/v1/clientes/{id}/produtos/{id_produto}
     - Metodo: POST
+    - Body
+        - status[String]: Status do produto para o cliente
     - Header:
         - Authorization: Token de Acesso do cliente logado
         - X-Correlation-ID: UUID Randomico
@@ -138,16 +140,23 @@ $ docker-compose up --build --force-recreate
         - HttpStatus: 403 [Acesso Nao Autorizado]
 ---
     - CONSULTA LISTA PRODUTOS FAVORITOS DO CLIENTE
-    - Uri: /api/v1/clientes/{id}/produtosfavoritos
+    - Uri: /api/v1/clientes/{id}/produtos
     - Metodo: GET
     - Query Params
-        - page: Numero da pagina da lista
-        - size: Quantidade de registros que a pagina deve retornar
+        - status [Obrigatorio]: Status do produto para o cliente
+        - page   [Opcional]:    Numero da pagina da lista 
+        - size   [Opcional]:    Quantidade de registros que a pagina deve retornar
     - Header:
         - Authorization: Token de Acesso do cliente logado
         - X-Correlation-ID: UUID Randomico
     - Response:
         - HttpStatus: 200 [Consulta de Lista de produtos favoritos com sucesso]
+        - Body:
+            - id[String]: Id do Produto
+            - image[String]: Url da imagem do produto
+            - price[BigDecimal]: Preco do Produto
+            - title[String]: Titulo do produto
+            - reviewScore[BigDecimal]: Nota do produto
         - HttpStatus: 403 [Acesso Nao Autorizado]
 ---
 
@@ -156,7 +165,7 @@ $ docker-compose up --build --force-recreate
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Java 11](https://www.oracle.com/br/java/technologies/javase-jdk11-downloads.html)
-- [Postgresql](https://www.postgresql.org)
+- [MongoDb](https://www.mongodb.com)
 
 ### Autor
 

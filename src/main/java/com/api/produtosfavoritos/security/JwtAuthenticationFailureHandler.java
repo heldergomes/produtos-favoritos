@@ -1,5 +1,7 @@
 package com.api.produtosfavoritos.security;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
@@ -11,11 +13,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class JwtAuthenticationFailureHandler implements AuthenticationFailureHandler {
+
+    Logger log = LoggerFactory.getLogger("JwtAuthenticationFailureHandler");
     @Override
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
         httpServletResponse.setStatus(401);
         httpServletResponse.getWriter().append(json());
         httpServletResponse.setHeader("Content-Type", "application/json");
+        log.warn("Acesso a aplicacao não autorizado");
     }
 
     private String json(){

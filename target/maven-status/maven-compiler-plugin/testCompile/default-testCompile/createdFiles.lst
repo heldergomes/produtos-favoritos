@@ -5,5 +5,5 @@ com/api/produtosfavoritos/config/WireMockInitializer.class
 com/api/produtosfavoritos/produtofavorito/ConsultaListaProdutosFavoritosTest.class
 com/api/produtosfavoritos/cliente/LoginClienteTest.class
 com/api/produtosfavoritos/cliente/CadastrarClienteTest.class
-com/api/produtosfavoritos/produtofavorito/CadastroProdutoFavoritoTest.class
+com/api/produtosfavoritos/produtofavorito/CadastroProdutoTest.class
 com/api/produtosfavoritos/ProdutosFavoritosApplicationTests.class

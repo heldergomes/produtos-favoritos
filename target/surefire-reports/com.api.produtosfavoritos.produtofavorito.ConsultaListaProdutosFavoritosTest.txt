@@ -1,4 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: com.api.produtosfavoritos.produtofavorito.ConsultaListaProdutosFavoritosTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.569 s - in com.api.produtosfavoritos.produtofavorito.ConsultaListaProdutosFavoritosTest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.908 s <<< FAILURE! - in com.api.produtosfavoritos.produtofavorito.ConsultaListaProdutosFavoritosTest
+com.api.produtosfavoritos.produtofavorito.ConsultaListaProdutosFavoritosTest.devoConsultarListaProdutosFavoritosEntaoRetornaHttp200  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cadastroProdutoFavorito' defined in file [/Users/tomate/produtos-favoritos/target/classes/com/api/produtosfavoritos/produtosfavoritos/CadastroProdutoFavorito.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.api.produtosfavoritos.produtosfavoritos.ProdutoApiRequest': Unexpected exception during bean creation; nested exception is java.lang.IllegalStateException: No Feign Client for loadBalancing defined. Did you forget to include spring-cloud-starter-loadbalancer?
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.api.produtosfavoritos.produtosfavoritos.ProdutoApiRequest': Unexpected exception during bean creation; nested exception is java.lang.IllegalStateException: No Feign Client for loadBalancing defined. Did you forget to include spring-cloud-starter-loadbalancer?
+Caused by: java.lang.IllegalStateException: No Feign Client for loadBalancing defined. Did you forget to include spring-cloud-starter-loadbalancer?
+
