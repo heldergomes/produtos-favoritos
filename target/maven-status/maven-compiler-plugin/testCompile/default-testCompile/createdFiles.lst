@@ -1,9 +1,0 @@
-com/api/produtosfavoritos/cliente/AtualizarClienteTest.class
-com/api/produtosfavoritos/cliente/ConsultaClienteTest.class
-com/api/produtosfavoritos/cliente/DeletarClienteTest.class
-com/api/produtosfavoritos/config/WireMockInitializer.class
-com/api/produtosfavoritos/produtofavorito/ConsultaListaProdutosFavoritosTest.class
-com/api/produtosfavoritos/cliente/LoginClienteTest.class
-com/api/produtosfavoritos/cliente/CadastrarClienteTest.class
-com/api/produtosfavoritos/produtofavorito/CadastroProdutoTest.class
-com/api/produtosfavoritos/ProdutosFavoritosApplicationTests.class
