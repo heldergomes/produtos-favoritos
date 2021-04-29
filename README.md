@@ -7,6 +7,7 @@ Indice
    * [Como_Usar](#Como_Usar)
    * [Endpoints](#Endpoints)
    * [Tecnologias](#Tecnologias)
+   * [Arquitetura](#Arquitetura)
    * [Autor](#Autor)
 <!--te-->
 
@@ -42,6 +43,8 @@ $ cd produtos-favoritos/
 
 # Execute o comando:
 $ docker-compose up --build --force-recreate
+
+# Importe a collection e o environment para o postman no pacote: produtos-favoritos/postman/
 ```
 
 ### Endpoints
@@ -129,7 +132,7 @@ $ docker-compose up --build --force-recreate
     - Uri: /api/v1/clientes/{id}/produtos/{id_produto}
     - Metodo: POST
     - Body
-        - status[String]: Status do produto para o cliente
+        - status[String - Enum(favorito)]: Status do produto para o cliente
     - Header:
         - Authorization: Token de Acesso do cliente logado
         - X-Correlation-ID: UUID Randomico
@@ -166,6 +169,23 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Java 11](https://www.oracle.com/br/java/technologies/javase-jdk11-downloads.html)
 - [MongoDb](https://www.mongodb.com)
+
+### Arquitetura
+
+***Conceito dos Componentes***<br>
+|- cliente (Componente que possui todo desenvolvimento relacionado ao cliente)<br>
+|- config (Componente que possui toda configuracao da aplicacao)<br>
+|- exception (Componente que trata toda excessao da aplicacao)<br>
+|- produto (Componente que possui todo desenvolvimento relacionado ao produto do cliente)<br>
+|- security (Componente que possui toda camada de autenticacao e autorizacao da aplicacao)<br>
+
+***Padrao de Sufixo das classes***<br>
+|- * (Classe que representa uma entidade)<br>
+|- *Controller (Classe que controla os endpoints de uma entidade)<br>
+|- *Dto (Classe que segrega o body da entidade da propria entidade de dominio)<br>
+|- *Repository (Classe que persiste todos os dados da entidade)<br>
+|- *ApiRequest (Classe que requisita outra aplicacao para a entidade)<br>
+|- *UseCase (Classe que representa um caso de uso da entidade)<br>
 
 ### Autor
 

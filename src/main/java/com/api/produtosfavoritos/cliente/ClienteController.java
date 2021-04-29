@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/api/v1")
-public class ControllerCliente {
+public class ClienteController {
 
     Logger log = LoggerFactory.getLogger("Controller");
 

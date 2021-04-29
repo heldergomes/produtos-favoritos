@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface ProdutoFavoritoRepository extends MongoRepository<Produto, String> {
+public interface ProdutoRepository extends MongoRepository<Produto, String> {
 
     @Query("{ 'id' : '?0',  'idCliente' : '?1'}")
     Optional<Produto> get(String id, String idCliente);

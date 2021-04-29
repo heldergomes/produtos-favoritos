@@ -1,4 +1,4 @@
-package com.api.produtosfavoritos.cliente;
+package com.api.produtosfavoritos.exception;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

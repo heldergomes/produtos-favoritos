@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotBlank;
 
-public class StatusDto {
+public class StatusProdutoDto {
 
     @NotBlank(message = "status não pode estar nulo")
     @JsonProperty(value = "status")

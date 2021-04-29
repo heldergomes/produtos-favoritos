@@ -15,17 +15,17 @@ import java.util.Arrays;
 import java.util.Optional;
 
 @Service
-public class CadastroProdutoFavorito {
+public class CadastroStatusProdutoUseCase {
 
     Logger log = LoggerFactory.getLogger("CadastroProdutoFavorito");
 
     private final ClienteRepository clienteRepository;
     private final ProdutoApiRequest produtoApiRequest;
-    private final ProdutoFavoritoRepository produtoFavoritoRepository;
-    public CadastroProdutoFavorito(ClienteRepository clienteRepository, ProdutoApiRequest produtoApiRequest, ProdutoFavoritoRepository produtoFavoritoRepository) {
+    private final ProdutoRepository produtoRepository;
+    public CadastroStatusProdutoUseCase(ClienteRepository clienteRepository, ProdutoApiRequest produtoApiRequest, ProdutoRepository produtoRepository) {
         this.clienteRepository = clienteRepository;
         this.produtoApiRequest = produtoApiRequest;
-        this.produtoFavoritoRepository = produtoFavoritoRepository;
+        this.produtoRepository = produtoRepository;
     }
 
     public void cadastrar(String idCliente, String idProduto, String status){
@@ -43,7 +43,7 @@ public class CadastroProdutoFavorito {
     }
 
     private void validarNaoExistenciaProdutoFavorito(String idCliente, String idProduto){
-        Optional<Produto> produtoFavorito = produtoFavoritoRepository.get(idProduto, idCliente);
+        Optional<Produto> produtoFavorito = produtoRepository.get(idProduto, idCliente);
         if (produtoFavorito.isPresent())
             throw new DataIntegrityViolationException("Produto ja cadastrado como favorito");
         log.info("produto validado com sucesso");
@@ -63,7 +63,7 @@ public class CadastroProdutoFavorito {
     private void salvarProdutoFavorito(Produto produto, String idCliente, String status){
         produto.setIdCliente(idCliente);
         produto.setStatusProduto(Arrays.asList(status));
-        produtoFavoritoRepository.save(produto);
+        produtoRepository.save(produto);
         log.info("produto salvo na lista de produtos favoritos com sucesso");
     }
 }

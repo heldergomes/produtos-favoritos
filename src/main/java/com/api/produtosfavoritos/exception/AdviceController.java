@@ -1,7 +1,5 @@
-package com.api.produtosfavoritos.cliente;
+package com.api.produtosfavoritos.exception;
 
-import com.api.produtosfavoritos.exception.ChaveDuplicadaException;
-import com.api.produtosfavoritos.exception.EntidadeNaoEncontradaException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;

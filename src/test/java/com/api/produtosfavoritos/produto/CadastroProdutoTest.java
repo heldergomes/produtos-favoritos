@@ -39,13 +39,13 @@ public class CadastroProdutoTest {
     @Autowired
     private ClienteRepository clienteRepository;
     @Autowired
-    private ProdutoFavoritoRepository produtoFavoritoRepository;
+    private ProdutoRepository produtoRepository;
     String url = "";
     String authorization = "";
 
     @BeforeEach
     public void setup() throws Exception {
-        this.produtoFavoritoRepository.deleteAll();
+        this.produtoRepository.deleteAll();
         this.clienteRepository.deleteAll();
         ResultActions response = this.mockMvc.perform(post("/api/v1/clientes")
                 .contentType(MediaType.APPLICATION_JSON)
