@@ -28,10 +28,6 @@ public class Produto {
     private BigDecimal reviewScore;
     private List<String> status;
 
-    public List<String> getStatusProduto() {
-        return status;
-    }
-
     public void setUUID(){
         this.id = String.valueOf(UUID.randomUUID());
     }
@@ -46,11 +42,6 @@ public class Produto {
 
     public void setIdProduto(String idProduto) {
         this.idProduto = idProduto;
-    }
-
-
-    public String getIdCliente() {
-        return idCliente;
     }
 
     public void setIdCliente(String idCliente) {

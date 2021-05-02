@@ -53,16 +53,6 @@ public class AdviceController {
         return new ResponseEntity<>(new ErrorInfo(HttpStatus.NOT_FOUND.value(), HttpStatus.NOT_FOUND.name() ,ex.getMessage(), req.getRequestURL()), headers, HttpStatus.NOT_FOUND);
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(EmptyResultDataAccessException.class)
-    @ResponseBody
-    ResponseEntity<ErrorInfo> handleEmptyResultException(HttpServletRequest req, EmptyResultDataAccessException ex){
-        log.error("Erro de dado nao encontrada: " + ex.getMessage());
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        return new ResponseEntity<>(new ErrorInfo(HttpStatus.NOT_FOUND.value(), HttpStatus.NOT_FOUND.name() ,ex.getMessage(), req.getRequestURL()), headers, HttpStatus.NOT_FOUND);
-    }
-
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody

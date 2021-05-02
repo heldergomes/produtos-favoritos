@@ -1,5 +1,6 @@
 package com.api.produtosfavoritos.cliente;
 
+import com.api.produtosfavoritos.ProdutosFavoritosApplication;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest
+@SpringBootTest(classes = ProdutosFavoritosApplication.class)
 @AutoConfigureMockMvc
 @DisplayName("Consulta Cliente")
 public class ConsultaClienteTest {
