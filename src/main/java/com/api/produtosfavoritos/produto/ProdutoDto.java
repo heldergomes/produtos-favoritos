@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProdutoDto {
     @JsonProperty(value = "id")
-    private String id;
+    private String idProduto;
     @JsonProperty(value = "image")
     private String image;
     @JsonProperty(value = "price")
@@ -18,12 +18,12 @@ public class ProdutoDto {
     @JsonProperty(value = "reviewScore")
     private BigDecimal reviewScore;
 
-    public String getId() {
-        return id;
+    public String getIdProduto() {
+        return idProduto;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdProduto(String idProduto) {
+        this.idProduto = idProduto;
     }
 
     public String getImage() {
@@ -56,5 +56,16 @@ public class ProdutoDto {
 
     public void setReviewScore(BigDecimal reviewScore) {
         this.reviewScore = reviewScore;
+    }
+
+    @Override
+    public String toString() {
+        return "ProdutoDto{" +
+                "id='" + idProduto + '\'' +
+                ", image='" + image + '\'' +
+                ", price=" + price +
+                ", title='" + title + '\'' +
+                ", reviewScore=" + reviewScore +
+                '}';
     }
 }

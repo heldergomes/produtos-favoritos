@@ -6,6 +6,7 @@ Indice
    * [Features](#Features)
    * [Como_Usar](#Como_Usar)
    * [Endpoints](#Endpoints)
+   * [Teste_Performance](#Teste_Performance)
    * [Tecnologias](#Tecnologias)
    * [Arquitetura](#Arquitetura)
    * [Autor](#Autor)
@@ -162,6 +163,19 @@ $ docker-compose up --build --force-recreate
             - reviewScore[BigDecimal]: Nota do produto
         - HttpStatus: 403 [Acesso Nao Autorizado]
 ---
+
+### Teste_Performance
+
+```
+# Abra pasta JMeter
+$ cd /produtos-favoritos/jmeter
+
+# Executar plano de teste e gerar dashboard
+$ jmeter -n -t teste_carga.jmx -l resultado.jtl -e -o testes_produtos_favoritos
+
+# Abrir resultado de execução
+$ open /produtos-favoritos/jmeter/testes_produtos_favoritos/index.html
+```
 
 ### Tecnologias
 

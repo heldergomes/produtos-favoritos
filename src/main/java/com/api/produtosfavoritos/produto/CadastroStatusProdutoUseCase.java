@@ -39,21 +39,20 @@ public class CadastroStatusProdutoUseCase {
     private void validarExistenciaCliente(String idCliente){
         Optional<Cliente> cliente = clienteRepository.findById(idCliente);
         cliente.orElseThrow(() -> new EntidadeNaoEncontradaException("Cliente: " + idCliente + " nao encontrado"));
-        log.info("Cliente validado com sucesso: ", cliente.get().toString());
+        log.info("Cliente validado com sucesso: " + cliente.get().toString());
     }
 
     private void validarNaoExistenciaProdutoFavorito(String idCliente, String idProduto){
         Optional<Produto> produtoFavorito = produtoRepository.get(idProduto, idCliente);
         if (produtoFavorito.isPresent())
             throw new DataIntegrityViolationException("Produto ja cadastrado como favorito");
-        log.info("produto validado com sucesso");
-
+        log.info("produto validado com sucesso: " + produtoFavorito);
     }
 
     private Produto consultarCatalogoProduto(String idProduto){
         try {
             ResponseEntity<ProdutoDto> dto = produtoApiRequest.getProduto(idProduto);
-            log.info("produto consultado no catalogo de produtos com sucesso");
+            log.info("produto consultado no catalogo de produtos com sucesso: " + dto.toString());
             return new ModelMapper().map(dto.getBody(), Produto.class);
         }catch (FeignException ex){
             throw new EntidadeNaoEncontradaException("Produto nao encontrado no catalogo - " + ex.status());
@@ -61,6 +60,7 @@ public class CadastroStatusProdutoUseCase {
     }
 
     private void salvarProdutoFavorito(Produto produto, String idCliente, String status){
+        produto.setUUID();
         produto.setIdCliente(idCliente);
         produto.setStatusProduto(Arrays.asList(status));
         produtoRepository.save(produto);

@@ -1,17 +1,25 @@
 package com.api.produtosfavoritos.produto;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 @Document(collection = "produtos")
+@CompoundIndexes({
+        @CompoundIndex(name = "id_produto_cliente", def = "{'idProduto' : 1, 'idCliente': 1}")
+})
 public class Produto {
 
     @Id
     private String id;
+    @Indexed
+    private String idProduto;
     @Indexed
     private String idCliente;
     private String image;
@@ -24,17 +32,22 @@ public class Produto {
         return status;
     }
 
+    public void setUUID(){
+        this.id = String.valueOf(UUID.randomUUID());
+    }
+
     public void setStatusProduto(List<String> status) {
         this.status = status;
     }
 
-    public String getId() {
-        return id;
+    public String getIdProduto() {
+        return idProduto;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdProduto(String idProduto) {
+        this.idProduto = idProduto;
     }
+
 
     public String getIdCliente() {
         return idCliente;

@@ -45,7 +45,7 @@ public class ClienteController {
     public ResponseEntity<ClienteDto> buscarCliente(@PathVariable String id){
 
         Optional<Cliente> cliente = repository.findById(id);
-        log.info("Cliente consultado com sucesso: ");
+        log.info("Cliente consultado com sucesso: " + cliente);
 
         cliente.orElseThrow(() -> new EntidadeNaoEncontradaException("Cliente: " + id + " nao encontrado"));
 
@@ -59,7 +59,7 @@ public class ClienteController {
     public ResponseEntity<ClienteDto> atualizarCliente(@PathVariable String id, @Valid @RequestBody ClienteDto dto){
 
         Optional<Cliente> clienteOptional = repository.findById(id);
-        log.info("Cliente consultado com sucesso: ");
+        log.info("Cliente consultado com sucesso: " + clienteOptional);
         clienteOptional.orElseThrow(() -> new EntidadeNaoEncontradaException("Cliente: " + id + " nao encontrado"));
 
         Cliente cliente = new ModelMapper().map(dto, Cliente.class);
@@ -76,7 +76,7 @@ public class ClienteController {
     public ResponseEntity<ClienteDto> deletarCliente(@PathVariable String id){
 
         Optional<Cliente> clienteOptional = repository.findById(id);
-        log.info("Cliente consultado com sucesso: ");
+        log.info("Cliente consultado com sucesso: "  + clienteOptional);
         clienteOptional.orElseThrow(() -> new EntidadeNaoEncontradaException("Cliente: " + id + " nao encontrado"));
 
         repository.delete(clienteOptional.get());

@@ -23,7 +23,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nome\": \"helder2\",\n    \"email\": \"helder2@gmail.com\"\n}"
+					"raw": "{\n    \"nome\": \"carlos\",\n    \"email\": \"carlos@gmail.com\"\n}"
 				},
 				"url": {
 					"raw": "{{url}}/api/v1/clientes",
@@ -51,12 +51,12 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NTkwNzY0fQ.t0XKPNcaw6J-IfAepQDvHy0QF4drcihcTAFn3bvEV6YGMry1Lwp85nBmknv6TYQ0U88VhRqzmL_U8-bo95_Q6w",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5OTExNDkyfQ.s6QMuoAgly_0EJ1gp5e212H7Zi1OhtS-72uYrA-hkaujlitfyel1WXkqhAvDQ-VQ27uKS6WzG4Lgf05e6AsO_Q",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{url}}/api/v1/clientes/f4209a04-3e23-4354-9e9e-cdd3ee243217",
+					"raw": "{{url}}/api/v1/clientes/dc118005-f036-4db7-bede-8751454209ff",
 					"host": [
 						"{{url}}"
 					],
@@ -64,7 +64,7 @@
 						"api",
 						"v1",
 						"clientes",
-						"f4209a04-3e23-4354-9e9e-cdd3ee243217"
+						"dc118005-f036-4db7-bede-8751454209ff"
 					]
 				}
 			},
@@ -87,16 +87,16 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NTkwNzY0fQ.t0XKPNcaw6J-IfAepQDvHy0QF4drcihcTAFn3bvEV6YGMry1Lwp85nBmknv6TYQ0U88VhRqzmL_U8-bo95_Q6w",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NzM1MjIyfQ.hGQJhoh7SNPy7Zw9qJ_6X_EfMX7R2oyfctHy3_fkacO6iVpdi3QsxsgzzLRnr3Y3chA1heINZLv5jWcViYmH3A",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nome\": \"helder\",\n    \"email\": \"helder@gmail.com\"\n}"
+					"raw": "{\n    \"nome\": \"helderA\",\n    \"email\": \"helderA@gmail.com\"\n}"
 				},
 				"url": {
-					"raw": "{{url}}/api/v1/clientes/f4209a04-3e23-4354-9e9e-cdd3ee243217",
+					"raw": "{{url}}/api/v1/clientes/5c4ccef1-3b92-47d2-b7dd-86a62b61af6d",
 					"host": [
 						"{{url}}"
 					],
@@ -104,7 +104,7 @@
 						"api",
 						"v1",
 						"clientes",
-						"f4209a04-3e23-4354-9e9e-cdd3ee243217"
+						"5c4ccef1-3b92-47d2-b7dd-86a62b61af6d"
 					]
 				}
 			},
@@ -210,7 +210,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nome\": \"helder2\",\n    \"email\": \"helder2@gmail.com\"\n}"
+					"raw": "{\n    \"nome\": \"carlos\",\n    \"email\": \"carlos@gmail.com\"\n}"
 				},
 				"url": {
 					"raw": "{{url}}/login",
@@ -231,7 +231,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXJAZ21haWwuY29tIiwiZXhwIjoxNjE5NjcxMTQxfQ.icIggziwmHk6xaaQVa_P-hQ5iyYJwqynHKLCfB4IbzaS7de7hRSd9fSWeMEbFm3bGEZMytoAOBoVn1lZwIr6kg",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3NAZ21haWwuY29tIiwiZXhwIjoxNjE5OTkyNzI4fQ.RtsW0t6rXgPLzcljzcn3yVjdp1TyVQ-5eENcwhE4Zj3_i8zABjKlfdIj-_v6yzi6p0YStSDynFs7t3HwlYb5_A",
 						"type": "text"
 					},
 					{
@@ -250,7 +250,7 @@
 					"raw": "{\n    \"status\": \"favorito\"\n}"
 				},
 				"url": {
-					"raw": "{{url}}/api/v1/clientes/ef381d1a-01f9-4c6b-b0a1-c81083b7da95/produtos/ed99418b-af68-b68c-32b1-0d3cde4fc4bf",
+					"raw": "{{url}}/api/v1/clientes/470e44b5-f07b-4f10-b3bd-f3bdfead9b4b/produtos/a96b5916-9109-5d2e-138a-7b656efe1f92",
 					"host": [
 						"{{url}}"
 					],
@@ -258,9 +258,9 @@
 						"api",
 						"v1",
 						"clientes",
-						"ef381d1a-01f9-4c6b-b0a1-c81083b7da95",
+						"470e44b5-f07b-4f10-b3bd-f3bdfead9b4b",
 						"produtos",
-						"ed99418b-af68-b68c-32b1-0d3cde4fc4bf"
+						"a96b5916-9109-5d2e-138a-7b656efe1f92"
 					]
 				}
 			},
@@ -273,7 +273,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoZWxkZXIyQGdtYWlsLmNvbSIsImV4cCI6MTYxOTY3MTM2MX0.kAI79bWbZu3gc09kbTyYrX3Tk1w-q6kUblT_vBXNX1sJ5rDYAB4L5nXgQ1jvZ-OryRb8TgpEiSTy8PTbanKH1A",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3NAZ21haWwuY29tIiwiZXhwIjoxNjE5OTkyNzI4fQ.RtsW0t6rXgPLzcljzcn3yVjdp1TyVQ-5eENcwhE4Zj3_i8zABjKlfdIj-_v6yzi6p0YStSDynFs7t3HwlYb5_A",
 						"type": "text"
 					},
 					{
@@ -283,7 +283,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/api/v1/clientes/dfdede54-d37a-441c-ae50-c856ae869a46/produtos?status=favorito",
+					"raw": "{{url}}/api/v1/clientes/470e44b5-f07b-4f10-b3bd-f3bdfead9b4b/produtos?status=favorito",
 					"host": [
 						"{{url}}"
 					],
@@ -291,7 +291,7 @@
 						"api",
 						"v1",
 						"clientes",
-						"dfdede54-d37a-441c-ae50-c856ae869a46",
+						"470e44b5-f07b-4f10-b3bd-f3bdfead9b4b",
 						"produtos"
 					],
 					"query": [
