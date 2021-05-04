@@ -1,5 +1,6 @@
 package com.api.produtosfavoritos.produto;
 
+import com.api.produtosfavoritos.security.AuthorizationId;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,17 +19,19 @@ public class ProdutoController {
     Logger log = LoggerFactory.getLogger("ControllerProdutoFavorito");
     private final CadastroStatusProdutoUseCase cadastroStatusProdutoUsecase;
     private final ProdutoRepository produtoRepository;
+    private final AuthorizationId authorizationId;
 
-    public ProdutoController(CadastroStatusProdutoUseCase cadastroStatusProdutoUsecase, ProdutoRepository produtoRepository) {
+    public ProdutoController(CadastroStatusProdutoUseCase cadastroStatusProdutoUsecase, ProdutoRepository produtoRepository, AuthorizationId authorizationId) {
         this.cadastroStatusProdutoUsecase = cadastroStatusProdutoUsecase;
         this.produtoRepository = produtoRepository;
+        this.authorizationId = authorizationId;
     }
 
     @RequestMapping(value = "/produtos/{id_produto}", method = RequestMethod.POST, consumes = "application/json; charset=utf-8")
     public ResponseEntity cadastrarProdutoFavorito(@PathVariable(name = "id") String idCliente,
                                                    @PathVariable(name = "id_produto") String idProduto,
                                                    @Valid @RequestBody StatusProdutoDto dto){
-
+        authorizationId.valid(idCliente);
         cadastroStatusProdutoUsecase.cadastrar(idCliente, idProduto, dto.getStatus());
         log.info("Produto Favorito Cadastrado com sucesso");
 
@@ -38,6 +41,7 @@ public class ProdutoController {
     @GetMapping(value = "/produtos", produces = "application/json; charset=utf-8")
     public ResponseEntity<Page<ProdutoDto>> consultarProdutosFavoritos(@PathVariable(name = "id") String idCliente,
                                                                        @RequestParam String status, Pageable pageable) {
+        authorizationId.valid(idCliente);
         Page<Produto> produtoFavorito = produtoRepository.findByIdClienteAndStatus(idCliente, status, pageable);
         log.info("Consulta da lista de produtos favoritos - pageNumber: " + pageable.getPageNumber() + " pageSize: " + pageable.getPageSize());
         Page<ProdutoDto> dto = produtoFavorito.map( produto -> new ModelMapper().map(produto, ProdutoDto.class));

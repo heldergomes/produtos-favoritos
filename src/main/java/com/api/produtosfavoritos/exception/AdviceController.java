@@ -68,4 +68,13 @@ public class AdviceController {
             });
         return new ResponseEntity<>(new ErrorInfo(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.name() ,req.getRequestURL(), errors), headers, HttpStatus.BAD_REQUEST);
     }
+
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ExceptionHandler(AutorizacaoException.class)
+    @ResponseBody
+    ResponseEntity<ErrorInfo> autorizacaoException(HttpServletRequest req, AutorizacaoException ex){
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(new ErrorInfo(HttpStatus.FORBIDDEN.value(), HttpStatus.FORBIDDEN.name() ,ex.getMessage(), req.getRequestURL()), headers, HttpStatus.FORBIDDEN);
+    }
 }

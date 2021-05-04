@@ -4,6 +4,7 @@ import com.api.produtosfavoritos.exception.ChaveDuplicadaException;
 import com.api.produtosfavoritos.exception.EntidadeNaoEncontradaException;
 import com.api.produtosfavoritos.produto.Produto;
 import com.api.produtosfavoritos.produto.ProdutoRepository;
+import com.api.produtosfavoritos.security.AuthorizationId;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,17 +28,16 @@ public class ClienteController {
     private ClienteRepository clienteRepository;
     @Autowired
     private ProdutoRepository produtoRepository;
+    @Autowired
+    private AuthorizationId authorizationId;
 
     @RequestMapping(value = "/clientes", method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity cadastrarCliente(@Valid @RequestBody ClienteDto dto){
-
         Cliente cliente = new ModelMapper().map(dto, Cliente.class);
         log.info("Mapeamento do cliente realizado com sucesso: " + cliente.toString());
-
         Optional<Cliente> clienteValidado = clienteRepository.getByEmail(cliente.getEmail());
         if (!clienteValidado.isEmpty())
             throw new ChaveDuplicadaException("Email Ja Cadastrado !");
-
         cliente.setUUID();
         cliente = clienteRepository.save(cliente);
         log.info("Cliente salvo com sucesso: " + cliente.toString());
@@ -48,12 +48,10 @@ public class ClienteController {
 
     @RequestMapping(value = "/clientes/{id}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<ClienteDto> buscarCliente(@PathVariable String id){
-
         Optional<Cliente> cliente = clienteRepository.findById(id);
         log.info("Cliente consultado com sucesso: " + cliente);
-
         cliente.orElseThrow(() -> new EntidadeNaoEncontradaException("Cliente: " + id + " nao encontrado"));
-
+        authorizationId.valid(id);
         ClienteDto dto = new ModelMapper().map(cliente.get(), ClienteDto.class);
         log.info("Mapeamento do dto feito com sucesso: " + cliente.get().toString());
 
@@ -62,11 +60,10 @@ public class ClienteController {
 
     @RequestMapping(value = "/clientes/{id}", method = RequestMethod.PUT, consumes = "application/json")
     public ResponseEntity<ClienteDto> atualizarCliente(@PathVariable String id, @Valid @RequestBody ClienteDto dto){
-
         Optional<Cliente> clienteOptional = clienteRepository.findById(id);
         log.info("Cliente consultado com sucesso: " + clienteOptional);
         clienteOptional.orElseThrow(() -> new EntidadeNaoEncontradaException("Cliente: " + id + " nao encontrado"));
-
+        authorizationId.valid(id);
         Cliente cliente = new ModelMapper().map(dto, Cliente.class);
         cliente.setId(id);
         log.info("Mapeamento do cliente realizado com sucesso: " + cliente.toString());
@@ -79,10 +76,10 @@ public class ClienteController {
 
     @RequestMapping(value = "/clientes/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<ClienteDto> deletarCliente(@PathVariable String id){
-
         Optional<Cliente> clienteOptional = clienteRepository.findById(id);
         log.info("Cliente consultado com sucesso: "  + clienteOptional);
         clienteOptional.orElseThrow(() -> new EntidadeNaoEncontradaException("Cliente: " + id + " nao encontrado"));
+        authorizationId.valid(id);
         Optional<List<Produto>> listaProdutos = produtoRepository.findByIdCliente(id);
         if (!listaProdutos.get().isEmpty()) {
             produtoRepository.deleteAll(listaProdutos.get());

@@ -81,21 +81,6 @@ public class CadastroProdutoTest {
                 .andExpect(status().isBadRequest());
     }
 
-    @DisplayName("Nao devo criar produto favorito Caso cliente Nao exista")
-    @Test
-    public void naoDevoCriarProdutoFavoritoEntaoRetornaHttp404() throws Exception {
-        this.wireMockServer.stubFor(get(urlEqualTo("/api/product/958ec015-cfcf-258d-c6df-1721de0ab6ea/"))
-                .willReturn(aResponse()
-                        .withStatus(200)
-                        .withHeader("Content-Type", "application/json")
-                        .withBody(getBodyProdutos())));
-        this.mockMvc.perform(post(url + "11/produtos/958ec015-cfcf-258d-c6df-1721de0ab6ea")
-                .header("Authorization", authorization)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(getBodyStatus()))
-                .andExpect(status().isNotFound());
-    }
-
     @DisplayName("Nao devo criar produto favorito Caso produto ja for favorito")
     @Test
     public void naoDevoCriarProdutoFavoritoEntaoRetornaHttp409() throws Exception {
